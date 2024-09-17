@@ -43,7 +43,7 @@ services:
 
   certbot:
     image: certbot/certbot
-    entrypoint: "/bin/sh -c 'if [ ! -f /etc/letsencrypt/live/monitoring.appline.id/fullchain.pem ]; then certbot certonly --webroot --webroot-path=/var/www/certbot --email cs@appline.id --agree-tos --no-eff-email -d monitoring.appline.id; fi && trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot -n; sleep 12h; done;'"
+    entrypoint: "/bin/sh -c 'if [ ! -f /etc/letsencrypt/live/monitorings.appline.id/fullchain.pem ]; then certbot certonly --webroot --webroot-path=/var/www/certbot --email cs@appline.id --agree-tos --no-eff-email -d monitorings.appline.id; fi && trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot -n; sleep 12h; done;'"
     volumes:
       - ./certs:/etc/letsencrypt # Mount for SSL certs storage
       - ./nginx/acme-challenge:/var/www/certbot # Mount for Let's Encrypt challenge
